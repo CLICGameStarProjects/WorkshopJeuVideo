@@ -1,5 +1,5 @@
 pico-8 cartridge // http://www.pico-8.com
-version 32
+version 38
 __lua__
 -- the snake
 -- by parein jean-philippe
@@ -48,17 +48,10 @@ function _update()
 	f-=1
  
  if game_over then	
- 
- 	for i=#snake,1,-1 do
- 		if f<0 then
- 		make_particles(
- 			snake[i].x,
- 			snake[i].y)
- 			del(snake,snake[i])
- 			sfx(3) 			
- 			f=2
- 		end
- 	end 	
+ -- todo: loop!
+ -- il faut faire la boucle
+ -- pour l'animation du
+ -- game over
  	
  	-- if the ❎ button is pressed,
  	-- we initialize the game (restart) 
@@ -72,18 +65,16 @@ function _update()
 	
 		f=head.spd --limit speed	
 		
-		--move snake
-		head.prevx=head.x
-		head.prevy=head.y		
 		--snake grow
 		for i=#snake,2,-1 do 
 		  snake[i].x=snake[i-1].x
 		  snake[i].y=snake[i-1].y
 		end
 		
-		--moving the head of the snake
-		head.x+=head.dx
-		head.y+=head.dy	
+		-- todo: flux!
+		-- il faut d'abord changer
+		-- les coordonnees de la tete
+		-- puis deplace la tete
 	
 	end	
 	
@@ -93,19 +84,10 @@ function _update()
 			head.dx=-8
 			head.dy=0
 			head.sp=4
-		elseif btn(➡️) and head.dx!=-8 then
-			head.dx=8
-			head.dy=0
-			head.sp=5
-		elseif btn(⬆️) and head.dy!=8 then
-			head.dx=0
-			head.dy=-8
-			head.sp=2
-		elseif btn(⬇️) and head.dy!=-8 then
-			head.dx=0
-			head.dy=8
-			head.sp=3
-		end	
+		end
+		-- todo: if!
+		-- il faut completer le
+		-- deplacement du snake
 		
 		--collision with apple
 		if(head.x==apple.x and
