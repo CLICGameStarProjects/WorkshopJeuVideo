@@ -112,11 +112,8 @@ function _draw()
  cls()
 
  -- instructions
- -- todo: sequence!
- -- afficher les instructions
- -- de comment jouer sur
- -- l'ecran
-
+ print("⬅️➡️: move",0,0,7)
+ print("z/🅾️: select",0,6,7)
 
  -- draw board starting at
  -- point (32,32)
@@ -139,9 +136,7 @@ function _draw()
 
 
  -- print hand above columns
- local x=32+selectedcolumn*8
- local y=16
- spr(1,x,y)
+ printhand()
 
 
 	-- if the game is over,
@@ -159,6 +154,25 @@ function _draw()
 
 end
 
+
+-- print hand above columns
+function printhand()
+ -- todo: utiliser la fonction
+ -- spr(num sprite, x, y)
+ -- qui permet d'afficher une 
+ -- sprite aux coordonnees (x,y) 
+ -- et aussi la variable 
+ -- selectedcolumn pour afficher 
+ -- une main (sprite num. 1) 
+ -- au-dessus de la colonne 
+ -- choisie.
+ -- Le tableau de jeu commence
+ -- aux coordonnees (32,32) et
+ -- chaque colonne fait 8 pixels 
+ -- de largeur.
+ -- Le (0,0) se trouve en haut
+ -- à gauche de l'ecran.
+end
 
 -- this function changes the
 -- board 'currentturn' from

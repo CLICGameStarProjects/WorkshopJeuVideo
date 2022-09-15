@@ -137,9 +137,7 @@ function _draw()
 
 
  -- print hand above columns
- local x=32+selectedcolumn*8
- local y=16
- spr(1,x,y)
+ printhand()
 
 
 	-- if the game is over,
@@ -157,6 +155,13 @@ function _draw()
 
 end
 
+
+-- print hand above columns
+function printhand()
+ local x=32+selectedcolumn*8
+ local y=16
+ spr(1,x,y)
+end
 
 -- this function changes the
 -- board 'currentturn' from
